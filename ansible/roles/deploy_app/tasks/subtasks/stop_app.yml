@@ -1,0 +1,5 @@
+ - name: Stopping services via docker compose
+   command: docker compose down
+   args:
+     chdir: "{{docker_compose_dir }}"
+   ignore_errors: yes

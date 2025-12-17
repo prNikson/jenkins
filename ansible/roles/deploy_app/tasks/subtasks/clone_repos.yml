@@ -1,0 +1,28 @@
+---
+- name: Ensure app directory exists
+  file:
+    path: "{{ app_dir }}"
+    state: directory
+    owner: "{{ app_user }}"
+    group: "{{ app_user }}"
+    mode: "0755"
+
+- name: Ensure repository directories exist
+  file:
+    path: "{{ item.dest | dirname }}"
+    state: directory
+    owner: "{{ app_user }}"
+    group: "{{ app_user }}"
+    mode: "0755"
+  loop: "{{ repos }}"
+
+- name: Clone repositories
+  git:
+    repo: "{{ item.url }}"
+    dest: "{{ item.dest }}"
+    clone: yes
+    update: yes
+    accept_hostkey: yes
+    key_file: "{{ ssh_key }}"
+  loop: "{{ repos }}"
+  become_user: "{{ app_user }}"

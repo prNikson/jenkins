@@ -1,0 +1,19 @@
+app_user: prod
+app_base_dir: "/home/{{ app_user }}"
+app_dir: "{{ app_base_dir }}/app"
+docker_compose_dir: "{{ app_dir }}/devops"
+docker_compose_file: "{{ docker_compose_dir }}/docker-compose.yml"
+ssh_key: "{{ app_base_dir }}/.ssh/github"
+
+repos:
+  - name: frontend
+    url: git@github.com:prNikson/frontend.git
+    dest: "{{ app_dir }}/frontend"
+
+  - name: backend
+    url: git@github.com:prNikson/backend.git
+    dest: "{{ app_dir }}/backend"
+
+  - name: devops
+    url: git@github.com:prNikson/devops.git
+    dest: "{{ app_dir }}/devops"

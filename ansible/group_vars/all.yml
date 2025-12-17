@@ -1,0 +1,13 @@
+repos:
+  - name: frontend
+    url: git@github.com:prNikson/frontend.git
+    dest: "{{ app_dir }}/frontend"
+
+  - name: backend
+    url: git@github.com:prNiskon/backend.git
+    dest: "{{ app_dir }}/backend"
+
+  - name: devops
+    url: git@github.com:prNikson/devops.git
+    dest: "{{ app_dir }}"
+

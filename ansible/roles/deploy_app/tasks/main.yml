@@ -1,0 +1,17 @@
+---
+- name: Install Docker and Docker Compose
+  import_tasks: subtasks/install_docker.yml
+  tags: install_docker
+
+- name: Clone repositories
+  import_tasks: subtasks/clone_repos.yml
+  tags: clone_repos
+
+- name: Start application
+  import_tasks: subtasks/start_app.yml
+  tags: start
+
+- name: Stop application
+  import_tasks: subtasks/stop_app.yml
+  tags: stop
+

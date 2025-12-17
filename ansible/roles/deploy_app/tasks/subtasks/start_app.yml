@@ -1,0 +1,4 @@
+ - name: Starting services via docker compose
+   command: docker compose up -d --build
+   args:
+     chdir: "{{ docker_compose_dir }}"
