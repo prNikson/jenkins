@@ -12,7 +12,7 @@ pipeline {
                     credentialsId: 'ssh-key',
                     playbook: 'ansible/playbooks/first-playbook.yml',
                     inventory: 'ansible/inventory/hosts',
-                    extras: '-t install_docker -t clone_repos'
+                    extras: '-t install_docker -t clone_repos --ask-become-pass'
                 )
             }
         }
@@ -22,7 +22,7 @@ pipeline {
                     credentialsId: 'ssh-key',
                     playbook: 'ansible/playbooks/first-playbook.yml',
                     inventory: 'ansible/inventory/hosts',
-                    extras: '-t start -t stop'
+                    extras: '-t start -t stop --ask-become-pass'
                 )
             }
         }
