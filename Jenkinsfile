@@ -11,7 +11,6 @@ pipeline {
                 ansiblePlaybook(
                     playbook: 'ansible/playbooks/first-playbook.yml',
                     inventory: 'ansible/inventory/hosts',
-                    extras: '--tags install_docker clone_repos'
                 )
             }
         }
@@ -20,7 +19,6 @@ pipeline {
                 ansiblePlaybook(
                 playbook: 'ansible/playbooks/first-playbook.yml',
                 inventory: 'ansible/inventory/hosts'
-                extras: '--tags start stop'
                 )
             }
         }
